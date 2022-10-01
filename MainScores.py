@@ -28,7 +28,7 @@ def score_server():
             raise IOError(f"Something was corrupted... {SCORES_FILE_NAME} has non numeric value: {score}")
         text_to_display = valid_score_text(score)
     except IOError as e:
-        text_to_display = invalid_score_text(f"Bad return code ({str(BAD_RETURN_CODE)}) when opening SCORES_FILE_NAME}", "f{e.strerror}")
+        text_to_display = invalid_score_text(f"Bad return code ({str(BAD_RETURN_CODE)}) when opening {SCORES_FILE_NAME}", "f{e.strerror}")
     finally:
         return f"<html><head><title>Scores Game</title></head><body>{text_to_display}</body></html>"
 
