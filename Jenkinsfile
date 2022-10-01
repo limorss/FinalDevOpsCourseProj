@@ -7,7 +7,7 @@ pipeline {
         IMAGE = "${USER}/wog_proj_image"
         CREDS = "630919f2-d46e-494d-8f5e-d2fcd7508c27"
         NODE_NAME = "WOG_Node"
-        PORT = "5000"
+        PORT = "5001"
         FLASK_SERVER_URL = "http://127.0.0.1:${PORT}"
     }
     stages {
@@ -46,4 +46,3 @@ pipeline {
         }
     }
 }
-            
