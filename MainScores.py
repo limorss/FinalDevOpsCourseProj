@@ -14,6 +14,7 @@ valid_score_text = lambda score: f"<h1>The score is <div id=\"score\">{score}</d
 # Create http server and run it
 app = Flask("Scores Game")
 port = os.environ("PORT")
+print(f"PORT environment variable is {port}")
 port_number = 5000 if None == port else int(port)
 
 @app.route('/')
@@ -35,4 +36,4 @@ def score_server():
         return f"<html><head><title>Scores Game</title></head><body>{text_to_display}</body></html>"
 
 
-app.run(host="0.0.0.0", port=port_number, debug=False)
+app.run(host="0.0.0.0", port=port_number, debug=True)
