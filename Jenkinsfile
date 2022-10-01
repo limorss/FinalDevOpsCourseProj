@@ -25,7 +25,7 @@ pipeline {
             steps {
                 bat "docker compose up -d"
                 // Just for check...
-                //bat "docker compose convert"
+                bat "docker compose convert"
             }
         }
         stage('Run Tests in container...') {
@@ -42,7 +42,7 @@ pipeline {
     post {
         always {
             echo "Always cleanup..."
-            bat "docker compose down -v"
+            //bat "docker compose down -v"
         }
     }
 }
