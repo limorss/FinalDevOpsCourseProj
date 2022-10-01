@@ -7,7 +7,7 @@ from Utils import SCORES_FILE_NAME, READ_FILE_MODE
 from Utils import BAD_RETURN_CODE
 import argparse
 
-DEFAULT_PORT_NUMBER = 5000
+DEFAULT_PORT_NUMBER = "5000"
 
 invalid_score_text = lambda error: f"<h1><div id=\"score\" style=\"color:red\">{error}</div></h1>"
 valid_score_text = lambda score: f"<h1>The score is <div id=\"score\">{score}</div></h1>"
@@ -35,7 +35,7 @@ def score_server():
 
 parser = argparse.ArgumentParser(description='Script to start flask server...',
                                  formatter_class=argparse.RawTextHelpFormatter)
-parser.add_argument('-p', action='store', dest='port_number', default=DEFAULT_PORT_NUMBER, type=int,
+parser.add_argument('-p', action='store', dest='port_number', default=DEFAULT_PORT_NUMBER, type=str,
                     help=f"Flask server port number")
 args = parser.parse_args()
-app.run(host="0.0.0.0", port=args.port_number, debug=False)
+app.run(host="0.0.0.0", port=int(args.port_number), debug=False)
