@@ -34,4 +34,4 @@ def score_server():
         return f"<html><head><title>Scores Game</title></head><body>{text_to_display}</body></html>"
 
 
-app.run(host="0.0.0.0", port=5000, debug=False)
+app.run(host="0.0.0.0", port=int(os.environment("PORT")), debug=False)
