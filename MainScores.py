@@ -5,15 +5,18 @@
 from flask import Flask
 from Utils import SCORES_FILE_NAME, READ_FILE_MODE
 from Utils import BAD_RETURN_CODE
-import argparse
+import os
 
-DEFAULT_PORT_NUMBER = "5000"
+DEFAULT_PORT_NUMBER = 5000
+port = os.environ.get('PORT')
+port_number = int(port) if port else DEFAULT_PORT_NUMBER
 
 invalid_score_text = lambda error: f"<h1><div id=\"score\" style=\"color:red\">{error}</div></h1>"
 valid_score_text = lambda score: f"<h1>The score is <div id=\"score\">{score}</div></h1>"
 
 # Create http server and run it
 app = Flask("Scores Game")
+
 
 @app.route('/')
 def score_server():
@@ -32,10 +35,4 @@ def score_server():
     finally:
         return f"<html><head><title>Scores Game</title></head><body>{text_to_display}</body></html>"
 
-
-parser = argparse.ArgumentParser(description='Script to start flask server...',
-                                 formatter_class=argparse.RawTextHelpFormatter)
-parser.add_argument('-p', action='store', dest='port_number', default=DEFAULT_PORT_NUMBER, type=str,
-                    help=f"Flask server port number")
-args = parser.parse_args()
-app.run(host="0.0.0.0", port=int(args.port_number), debug=False)
+app.run(host="0.0.0.0", port=port_number, debug=False)
