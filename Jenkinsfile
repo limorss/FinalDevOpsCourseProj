@@ -25,7 +25,7 @@ pipeline {
             steps {
                 bat "docker compose up -d"
                 // Just for check...
-                //bat "docker compose convert"
+                bat "docker compose convert"
             }
         }
         stage('Run Tests in container...') {
