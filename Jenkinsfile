@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         PROJ_NAME = "FinalDevOpsCourseProj"
-        PROJ_BRANCH = "master"
+        PROJ_BRANCH = "development"
         USER = "limorss"
         IMAGE = "${USER}/wog_proj_image"
         CREDS = "630919f2-d46e-494d-8f5e-d2fcd7508c27"
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 bat "docker compose up -d"
                 // Just for check...
-                //bat "docker compose convert"
+                bat "docker compose convert"
             }
         }
         stage('Run Tests in container...') {

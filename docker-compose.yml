@@ -5,7 +5,7 @@ services:
       context: .
       args:
         PROJ_NAME: "${PROJ_NAME}"
-        PORT: "${PORT}"
+        PORT: ${PORT}
     image: "${IMAGE}"
     privileged: true
     user: root

@@ -7,7 +7,6 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 import argparse
-import os
 from Utils import MAX_SCORE, SUCCESS_RETURN_CODE, BAD_RETURN_CODE
 
 DEFAULT_FLASK_APP_URL = "http://127.0.0.1:5000/"
